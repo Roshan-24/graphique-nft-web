@@ -27,7 +27,7 @@ const Home = () => {
         <Center
           w={"full"}
           h={"300px"}
-          px={"64px"}
+          px={["40px", "48px", "64px"]}
           bgGradient={"linear(to-r, gradient-left, gradient-right)"}
           color={"white"}
           borderRadius={"25px"}
@@ -60,7 +60,7 @@ const Home = () => {
         </Text>
         <Box w={"full"} pos={"relative"}>
           <CgChevronLeftO
-            onClick={() => scroll(-40)}
+            onClick={() => scroll(-200)}
             fontSize={"32px"}
             style={{
               position: "absolute",
@@ -90,7 +90,7 @@ const Home = () => {
             </HStack>
           </Box>
           <CgChevronRightO
-            onClick={() => scroll(40)}
+            onClick={() => scroll(200)}
             fontSize={"32px"}
             style={{
               position: "absolute",
