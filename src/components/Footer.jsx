@@ -13,8 +13,9 @@ import {
   useMediaQuery
 } from "@chakra-ui/react";
 import { RiSearch2Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ setCurPage }) => {
   // Here's the signature
   const fontColor = useColorModeValue("black1", "white");
   const bgColor = useColorModeValue("white", "black2");
@@ -22,6 +23,7 @@ const Footer = () => {
   const [isLargerThan1550] = useMediaQuery("(min-width: 1550px)");
   const [isLargerThan1300] = useMediaQuery("(min-width: 1300px)");
   const [isLargerThan650] = useMediaQuery("(min-width: 650px)");
+  const navigate = useNavigate();
   return (
     <Box
       borderTopWidth={1}
@@ -31,7 +33,13 @@ const Footer = () => {
     >
       <Center>
         {isLargerThan1300 ? (
-          <HStack align={"start"} py={10} w="66.66%">
+          <HStack
+            position="relative"
+            left={"4%"}
+            align={"start"}
+            py={10}
+            w="66.66%"
+          >
             <VStack spacing={"7"} align={"left"} w="50%">
               <HStack spacing={5}>
                 <VStack spacing={-1.5}>
@@ -76,13 +84,29 @@ const Footer = () => {
               <Text pb={"10px"} fontSize={20} fontWeight={"bold"}>
                 Graphique NFT
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text
+                cursor={"pointer"}
+                onClick={() => {
+                  setCurPage(0);
+                  navigate("");
+                }}
+                fontSize={16}
+                color={fontColor}
+              >
                 Explore
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text
+                cursor={"pointer"}
+                onClick={() => {
+                  setCurPage(1);
+                  navigate("profile");
+                }}
+                fontSize={16}
+                color={fontColor}
+              >
                 My Items
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                 Following
               </Text>
             </VStack>
@@ -90,16 +114,16 @@ const Footer = () => {
               <Text pb={"10px"} fontSize={20} fontWeight={"bold"}>
                 Support
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                 Help centre
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                 Terms of service
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                 Legal
               </Text>
-              <Text fontSize={16} color={fontColor}>
+              <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                 Privacy policy
               </Text>
             </VStack>
@@ -149,35 +173,56 @@ const Footer = () => {
                 </Button>
               </InputGroup>
             </VStack>
-            <HStack align={"start"} w={isLargerThan650 ? "70%" : "90%"}>
-              <VStack align={"start"} spacing={"4"} w="50%">
+            <HStack
+              position="relative"
+              left={"7%"}
+              align={"start"}
+              w={isLargerThan650 ? "60%" : "80%"}
+            >
+              <VStack align={"start"} spacing={"4"} w="49%">
                 <Text pb={"10px"} w={"75%"} fontSize={20} fontWeight={"bold"}>
                   Graphique NFT
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text
+                  cursor={"pointer"}
+                  onClick={() => {
+                    setCurPage(0);
+                    navigate("");
+                  }}
+                  fontSize={16}
+                  color={fontColor}
+                >
                   Explore
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text
+                  cursor={"pointer"}
+                  onClick={() => {
+                    setCurPage(1);
+                    navigate("profile");
+                  }}
+                  fontSize={16}
+                  color={fontColor}
+                >
                   My Items
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                   Following
                 </Text>
               </VStack>
-              <VStack align={"start"} spacing={"4"} w="50%">
+              <VStack align={"start"} spacing={"4"} w="39%">
                 <Text pb={"10px"} fontSize={20} fontWeight={"bold"}>
                   Support
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                   Help centre
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                   Terms of service
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                   Legal
                 </Text>
-                <Text fontSize={16} color={fontColor}>
+                <Text cursor={"pointer"} fontSize={16} color={fontColor}>
                   Privacy policy
                 </Text>
               </VStack>

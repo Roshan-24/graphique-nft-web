@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   VStack,
   HStack,
@@ -24,8 +24,9 @@ import {
 import { RiSearch2Line } from "react-icons/ri";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ curPage, setCurPage }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue("white", "black2");
   const fontColor = useColorModeValue("black1", "white");
@@ -35,13 +36,14 @@ const Navbar = () => {
   const [isLargerThan896] = useMediaQuery("(min-width: 896px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const navigate = useNavigate();
   return (
     <HStack
       justifyContent={"space-between"}
       spacing={"5"}
       borderBottom={"1px"}
       borderBottomColor={borderColor}
-      px={"5%"}
+      px={"3%"}
       py={"30"}
     >
       <HStack spacing={5}>
@@ -94,12 +96,41 @@ const Navbar = () => {
               />
             </InputGroup>
           ) : null}
-          <Text cursor={"pointer"} fontWeight={"bold"}>
+          <Text
+            onClick={() => {
+              setCurPage(0);
+              navigate("");
+            }}
+            cursor={"pointer"}
+            fontWeight={curPage == 0 ? "bold" : "normal"}
+          >
             Explore
           </Text>
-          <Text cursor={"pointer"}>My Items</Text>
-          <Text cursor={"pointer"}>Following</Text>
-          <Button variant={"primary"}>Create</Button>
+          <Text
+            onClick={() => {
+              setCurPage(1);
+              navigate("profile");
+            }}
+            cursor={"pointer"}
+            fontWeight={curPage == 1 ? "bold" : "normal"}
+          >
+            My Items
+          </Text>
+          <Text
+            cursor={"pointer"}
+            fontWeight={curPage == 2 ? "bold" : "normal"}
+          >
+            Following
+          </Text>
+          <Button
+            onClick={() => {
+              setCurPage(3);
+              navigate("create");
+            }}
+            variant={"primary"}
+          >
+            Create
+          </Button>
           <Button px={"10"} variant={"secondary"}>
             Connect
           </Button>
@@ -135,10 +166,28 @@ const Navbar = () => {
 
               <DrawerBody>
                 <VStack spacing={5}>
-                  <Text align={"left"} w="100%" cursor={"pointer"}>
+                  <Text
+                    onClick={() => {
+                      setCurPage(0);
+                      navigate("");
+                      onClose();
+                    }}
+                    align={"left"}
+                    w="100%"
+                    cursor={"pointer"}
+                  >
                     Explore
                   </Text>
-                  <Text align={"left"} w="100%" cursor={"pointer"}>
+                  <Text
+                    onClick={() => {
+                      setCurPage(1);
+                      navigate("profile");
+                      onClose();
+                    }}
+                    align={"left"}
+                    w="100%"
+                    cursor={"pointer"}
+                  >
                     My Items
                   </Text>
                   <Text align={"left"} w="100%" cursor={"pointer"}>
@@ -148,7 +197,15 @@ const Navbar = () => {
               </DrawerBody>
 
               <DrawerFooter>
-                <Button variant="primary" mr={3} onClick={onClose}>
+                <Button
+                  onClick={() => {
+                    setCurPage(3);
+                    navigate("create");
+                    onClose();
+                  }}
+                  variant="primary"
+                  mr={3}
+                >
                   Create
                 </Button>
                 <Button variant="secondary">Connect</Button>
