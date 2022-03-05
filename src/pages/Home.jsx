@@ -56,7 +56,8 @@ const Home = () => (
           style={{
             position: "absolute",
             zIndex: 1,
-            top: "80px"
+            top: "80px",
+            cursor: "pointer"
           }}
         />
         <Box w={"full"} display={"flex"} px={2}>
@@ -77,14 +78,20 @@ const Home = () => (
         </Box>
         <CgChevronRightO
           fontSize={"32px"}
-          style={{ position: "absolute", zIndex: 1, top: "80px", right: "0" }}
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            top: "80px",
+            right: "0",
+            cursor: "pointer"
+          }}
         />
       </Box>
       <Spacer />
       <Text w={"full"} fontSize={"28px"} fontWeight={"semibold"}>
         Hot Bids
       </Text>
-      <SimpleGrid columns={[1, 2, 3, 4]} spacingX={12} spacingY={6}>
+      <SimpleGrid columns={[1, 2, 3, 4]} spacing={"20px"}>
         <NftCard />
         <NftCard />
         <NftCard />
