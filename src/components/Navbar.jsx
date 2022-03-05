@@ -66,6 +66,7 @@ const Navbar = () => {
         <>
           {isLargerThan1300 ? (
             <InputGroup
+              flexGrow={3}
               borderColor={borderColor}
               w={isLargerThan1550 ? "40%" : "25%"}
             >
