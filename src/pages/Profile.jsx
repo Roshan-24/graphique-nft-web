@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Button,
   Container,
@@ -15,6 +16,7 @@ import {
   SimpleGrid,
   Spacer,
   Text,
+  useColorMode,
   useColorModeValue,
   useMediaQuery,
   VStack
@@ -24,9 +26,10 @@ import NftCard from "../components/NftCard";
 
 const Profile = () => {
   const [isBig] = useMediaQuery("(min-width: 812px)");
+  const { colorMode } = useColorMode();
 
   return (
-    <Container maxW={"full"} px={0}>
+    <Container maxW={"full"} px={0} pos={"relative"}>
       <Image
         w={"full"}
         h={"308px"}
@@ -43,16 +46,14 @@ const Profile = () => {
         transform={"translateX(-50%)"}
         top={"205px"}
       >
-        <Image
-          // bgImage={`url("https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8.png")`}
+        <Avatar
           src={
             "https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
           }
           w={"208px"}
-          sx={{ aspectRatio: 1 }}
-          borderRadius={"50%"}
-          border={"6px solid white"}
-          borderColor={useColorModeValue("white", "dark")}
+          h={"208px"}
+          p={2}
+          bg={useColorModeValue("white", "dark")}
         />
         <Heading fontSize={"28px"} fontWeight={"semibold"}>
           Mia Ayana
@@ -62,7 +63,12 @@ const Profile = () => {
         <VStack spacing={8} py={12}>
           {isBig && (
             <HStack w={"full"} spacing={4}>
-              <InputGroup flex={3.7}>
+              <InputGroup
+                flex={3.7}
+                borderRadius={"lg"}
+                borderWidth={colorMode === "dark" ? 0 : "2px"}
+                borderColor={"grey1"}
+              >
                 <InputLeftElement
                   pointerEvents={"none"}
                   children={<FiSearch />}
@@ -81,6 +87,9 @@ const Profile = () => {
                   _hover={{ bg: useColorModeValue("white", "black2") }}
                   _active={{ bg: useColorModeValue("white", "black2") }}
                   as={Button}
+                  borderRadius={"lg"}
+                  borderWidth={colorMode === "dark" ? 0 : "2px"}
+                  borderColor={"grey1"}
                 >
                   <HStack>
                     <Text fontWeight={"normal"}>Recently Listed</Text>
