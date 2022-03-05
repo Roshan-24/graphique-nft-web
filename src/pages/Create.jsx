@@ -10,7 +10,9 @@ import {
   Spacer,
   Textarea,
   Select,
-  Button
+  Button,
+  InputRightElement,
+  InputGroup
 } from "@chakra-ui/react";
 import { BsFillImageFill } from "react-icons/bs";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -20,14 +22,14 @@ const Create = () => (
       <Text
         fontSize="xl"
         marginBottom="15px"
-        marginTop="35px"
+        marginTop="20px"
         textAlign="left"
         fontWeight="600"
       >
         Create new Item
       </Text>
       <Text
-        fontSize="md"
+        fontSize="lg"
         marginBottom="15px"
         paddingBottom="10px"
         fontWeight="600"
@@ -84,11 +86,21 @@ const Create = () => (
       >
         Price
       </Text>
-      <Select
+
+      {/* <Select
         iconSize="300px"
+        color='gray.400'
         icon={<RiArrowDropDownLine />}
         placeholder="Enter Price"
-      />
+      /> */}
+
+      <InputGroup size="md">
+        <Input pr="4.5rem" placeholder="Enter Price" />
+        <InputRightElement width="4.5rem">
+          <Text color="gray.600">ETH</Text>
+          <RiArrowDropDownLine fontSize="40px" color="gray.600" />
+        </InputRightElement>
+      </InputGroup>
     </VStack>
 
     <VStack align="end" paddingTop="40px">
