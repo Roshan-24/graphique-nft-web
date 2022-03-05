@@ -6,6 +6,7 @@ import Create from "./pages/Create";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Item from "./pages/item";
 
 const App = () => (
   <ChakraProvider theme={theme}>
@@ -15,6 +16,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Item />} />
       </Routes>
     </BrowserRouter>
     <Footer />
