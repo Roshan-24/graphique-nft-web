@@ -59,10 +59,10 @@ const Profile = () => {
           Mia Ayana
         </Heading>
       </VStack>
-      <Container maxW={"1024px"} px={"24px"} mt={"170px"}>
+      <Container maxW={"1200px"} px={"24px"} mt={"170px"}>
         <VStack spacing={8} py={12}>
           {isBig && (
-            <HStack w={"full"} spacing={4}>
+            <HStack w={"full"} px={4} spacing={"30px"}>
               <InputGroup
                 flex={3.7}
                 borderRadius={"lg"}
@@ -104,7 +104,12 @@ const Profile = () => {
               </Menu>
             </HStack>
           )}
-          <SimpleGrid columns={[1, 2, 3, 4]} spacing={"20px"}>
+          <SimpleGrid
+            minChildWidth={"233px"}
+            spacing={"30px"}
+            w={"full"}
+            justifyItems={"center"}
+          >
             <NftCard
               name="Abstact Smoke Red Blue"
               like="92"
