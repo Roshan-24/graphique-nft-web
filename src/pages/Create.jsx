@@ -12,20 +12,15 @@ import {
   Select,
   Button,
   InputRightElement,
-  InputGroup
+  InputGroup,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { BsFillImageFill } from "react-icons/bs";
 import { RiArrowDropDownLine } from "react-icons/ri";
 const Create = () => (
-  <Container>
+  <Container py={12}>
     <VStack align="left">
-      <Text
-        fontSize="xl"
-        marginBottom="15px"
-        marginTop="20px"
-        textAlign="left"
-        fontWeight="600"
-      >
+      <Text fontSize="xl" marginBottom="15px" textAlign="left" fontWeight="600">
         Create new Item
       </Text>
       <Text
@@ -38,7 +33,14 @@ const Create = () => (
       </Text>
     </VStack>
     <VStack>
-      <Box w="full" h="300px" border="1px dashed" borderRadius="15px">
+      <Box
+        w="full"
+        h="300px"
+        border="1px dashed"
+        borderRadius="15px"
+        px={4}
+        borderColor={useColorModeValue("gray.300", "gray.600")}
+      >
         <Center>
           <Text paddingTop="45px" paddingBottom="10px">
             JPG, PNG, GIF, SVG, WEBM, MP3, MP4, Max 100mb

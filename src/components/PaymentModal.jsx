@@ -1,38 +1,23 @@
-import React from "react";
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   useColorModeValue,
-  useDisclosure,
-  Button,
-  useColorMode,
   VStack,
   HStack,
   Text,
   Divider,
-  Spacer,
-  Box,
   Image
 } from "@chakra-ui/react";
+import { transparentize } from "@chakra-ui/theme-tools";
 import { FaTelegramPlane, FaInstagram, FaTwitter } from "react-icons/fa";
 
-const TextItem = (itemContent, itemSize = 16) => {
-  return (
-    <Text fontSize={itemSize + "px"} fontWeight={"600"}>
-      {itemContent}
-    </Text>
-  );
-};
-
-function CheckoutModal() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const PaymentModal = ({ isOpen, onClose }) => {
   const modalBg = useColorModeValue("white", "dark");
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered={true}>
-        <ModalOverlay bg="black2" />
+        <ModalOverlay bg={transparentize("black2", 0.9)} />
         <ModalContent
           bg={modalBg}
           width={"585px"}
@@ -51,7 +36,7 @@ function CheckoutModal() {
             >
               Payment Successful
             </Text>
-            <Divider fontSize={"2px"} />
+            <Divider />
             <VStack pt={"20px"}>
               <Image
                 width={"211px"}
@@ -95,6 +80,6 @@ function CheckoutModal() {
       </Modal>
     </>
   );
-}
+};
 
-export default CheckoutModal;
+export default PaymentModal;

@@ -105,14 +105,54 @@ const Profile = () => {
             </HStack>
           )}
           <SimpleGrid columns={[1, 2, 3, 4]} spacing={"20px"}>
-            <NftCard />
-            <NftCard />
-            <NftCard />
-            <NftCard />
-            <NftCard />
-            <NftCard />
-            <NftCard />
-            <NftCard />
+            <NftCard
+              name="Abstact Smoke Red Blue"
+              like="92"
+              rate="1.25"
+              src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            />
+            <NftCard
+              name="Mountain Landscape"
+              like="25"
+              rate="0.20"
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            />
+            <NftCard
+              name="Paint Color on Wall"
+              like="55"
+              rate="0.55"
+              src="https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=410&q=80"
+            />
+            <NftCard
+              name="Abstract Patern"
+              like="82"
+              rate="0.87"
+              src="https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            />
+            <NftCard
+              name="White Line Grafiti"
+              like="22"
+              rate="0.09"
+              src="https://i0.wp.com/www.concrete-online.co.uk/wp-content/uploads/2020/11/content-pixie-woMD-vhzOHI-unsplash-scaled.jpg?ssl=1"
+            />
+            <NftCard
+              name="Abstract Triangle"
+              like="71"
+              rate="0.90"
+              src="https://images.unsplash.com/photo-1524169358666-79f22534bc6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            />
+            <NftCard
+              name="Lake Landscape"
+              like="63"
+              rate="0.52"
+              src="https://images.unsplash.com/photo-1413752362258-7af2a667b590?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80"
+            />
+            <NftCard
+              name="Blue Red Art"
+              like="66"
+              rate="0.85"
+              src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            />
           </SimpleGrid>
           <Button variant={"secondary"} px={"24"} rounded={"xl"}>
             Load More

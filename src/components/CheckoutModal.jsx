@@ -1,20 +1,17 @@
-import React from "react";
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   useColorModeValue,
-  useDisclosure,
   Button,
-  useColorMode,
   VStack,
   HStack,
   Text,
   Divider,
   Spacer,
-  Box,
   Image
 } from "@chakra-ui/react";
+import { transparentize } from "@chakra-ui/theme-tools";
 
 const TextItem = (itemContent, itemSize = 16) => {
   return (
@@ -24,18 +21,12 @@ const TextItem = (itemContent, itemSize = 16) => {
   );
 };
 
-function CheckoutModal() {
-  const { toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const CheckoutModal = ({ isOpen, onClose, openPayment }) => {
   const modalBg = useColorModeValue("white", "dark");
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-      <Button size="sm" onClick={toggleColorMode}>
-        Toggle Mode
-      </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered={true}>
-        <ModalOverlay bg="black2" />
+        <ModalOverlay bg={transparentize("black2", 0.9)} />
         <ModalContent
           bg={modalBg}
           width={"585px"}
@@ -92,14 +83,24 @@ function CheckoutModal() {
             </HStack>
             <Divider />
             <HStack justifyContent={"center"} pb={"29px"} pt={"20px"}>
-              <Button variant={"primary"}>Checkout</Button>
-              <Button variant={"secondary"}>Cancel</Button>
+              <Button
+                onClick={() => {
+                  openPayment();
+                  onClose();
+                }}
+                variant={"primary"}
+              >
+                Checkout
+              </Button>
+              <Button onClick={onClose} variant={"secondary"}>
+                Cancel
+              </Button>
             </HStack>
           </VStack>
         </ModalContent>
       </Modal>
     </>
   );
-}
+};
 
 export default CheckoutModal;
